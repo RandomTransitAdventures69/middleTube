@@ -42,15 +42,18 @@ You'll need:
 * npm
 * FFmpeg
 * FFprobe
+* python......?
+* internet
+  
 
 A Linux server, Mac, or other system capable of running Node.js should work.
 
 ## Installation
-
+``requires git installed lol
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/MiddleTube.git
+git clone https://github.com/RandomTransitAdventures69/MiddleTube.git
 cd MiddleTube
 ```
 
