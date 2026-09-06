@@ -32,7 +32,7 @@ MiddleTube currently recognizes:
 * `.mkv`
 * `.avi`
 * `.m2ts`
-* `.ts`
+* `.ts` ![ts is frying me](https://media.tenor.com/h5Njri3jkRwAAAAe/tsfryingme-browhat.png)
 
 ## Requirements
 
