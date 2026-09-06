@@ -2,22 +2,24 @@
 
 A self-hosted video library and streaming server built with Node.js and Express.
 
-MiddleTube lets you organize your own video collection into a simple web interface. Videos are scanned from a folder, given metadata and thumbnails, and displayed in a searchable library.
+MiddleTube lets you organize your own video collection into a simple web interface. Videos are scanned from a folder, given metadata and thumbnails, and displayed in a searchable library. 
+
+# tube archivist lowk ragebaiting me so i made this
 
 ## Features
 
-* 📺 Video library web interface
-* 🎬 Supports multiple video formats
-* 🔎 Automatic library scanning
-* 🖼️ Automatic video thumbnails
-* ⏱️ Video duration displayed on cards
-* 📊 Video metadata including resolution, codec, FPS, and file size
-* 📁 Recursive folder scanning
-* ⬆️ Upload support
-* ✏️ Video metadata editing
-* 🔐 Admin API protected by an admin key
-* 🌐 Simple Node.js + Express architecture
-* 💾 Filesystem-based storage — no complicated database required
+*  Video library web interface
+*  Supports multiple video formats
+*  Automatic library scanning
+*  Automatic video thumbnails
+*  Video duration displayed on cards
+*  Video metadata including resolution, codec, FPS, and file size
+*  Recursive folder scanning
+*  Upload support
+*  Video metadata editing
+*  Admin API protected by an admin key
+*  Simple Node.js + Express architecture
+*  Filesystem-based storage — no complicated database required
 
 ## Supported Video Formats
 
@@ -224,4 +226,4 @@ See `LICENSE` for the full license text.
 
 Made with Node.js, Express, FFmpeg, and an unreasonable amount of media files.
 
-**MiddleTube™**
+**i lowk used chatgpt because i cant code and NO, im NOT learning to code**
