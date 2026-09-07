@@ -1,59 +1,56 @@
 # MiddleTube™
 
-A self-hosted video library and streaming server built with Node.js and Express.
+A self-hosted local video archive and media management platform built with HTML, CSS, JavaScript, and Node.js.
 
-MiddleTube lets you organize your own video collection into a simple web interface. Videos are scanned from a folder, given metadata and thumbnails, and displayed in a searchable library. 
-
-# tube archivist lowk ragebaiting me so i made this
+MiddleTube™ turns a directory of locally stored videos into a clean, searchable web-based media library.
 
 ## Features
 
-*  Video library web interface
-*  Supports multiple video formats
-*  Automatic library scanning
-*  Automatic video thumbnails
-*  Video duration displayed on cards
-*  Video metadata including resolution, codec, FPS, and file size
-*  Recursive folder scanning
-*  Upload support
-*  Video metadata editing
-*  Admin API protected by an admin key
-*  Simple Node.js + Express architecture
-*  Filesystem-based storage — no complicated database required
+* Local video library
+* Automatic library scanning
+* Video metadata detection
+* Automatic thumbnails
+* Video duration detection
+* Channel/category organization
+* Video search and filtering
+* Recently added videos
+* Storage and library statistics
+* Dedicated video playback pages
+* Light and dark themes
+* Simple web-based settings
+* Self-hosted and fully local
+* No accounts or user system required
 
-## Supported Video Formats
+## Technology
 
-MiddleTube currently recognizes:
+MiddleTube™ is intentionally built using relatively simple technologies:
 
-* `.mp4`
-* `.m4v`
-* `.mov`
-* `.webm`
-* `.mkv`
-* `.avi`
-* `.m2ts`
-* `.ts` ![ts is frying me](https://media.tenor.com/h5Njri3jkRwAAAAe/tsfryingme-browhat.png)
+* HTML
+* CSS
+* JavaScript
+* Node.js
+* Express
+* FFmpeg / FFprobe
+
+There is no giant frontend framework required. No React. No Next.js. No 400-package JavaScript ecosystem™.
+
+Just a web server, some HTML, some CSS, and enough JavaScript to make everything work.
 
 ## Requirements
-
-You'll need:
 
 * Node.js
 * npm
 * FFmpeg
 * FFprobe
-* python......?
-* internet
-  
 
-A Linux server, Mac, or other system capable of running Node.js should work.
+MiddleTube™ is primarily designed for Linux, but should work on other platforms supported by Node.js and FFmpeg.
 
 ## Installation
-``requires git installed lol
+
 Clone the repository:
 
 ```bash
-git clone https://github.com/RandomTransitAdventures69/MiddleTube.git
+git clone https://github.com/randomtransitadventures/MiddleTube.git
 cd MiddleTube
 ```
 
@@ -63,170 +60,134 @@ Install dependencies:
 npm install
 ```
 
-Copy the example configuration:
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` and set your configuration:
-
-```env
-MIDDLETUBE_MEDIA_DIR=./media
-MIDDLETUBE_ADMIN_KEY=change-this-to-a-random-key
-PORT=3000
-```
-
-## Running MiddleTube
-
 Start the server:
 
 ```bash
 npm start
 ```
 
-Then open:
+MiddleTube™ will start on port `3000` by default.
+
+Open:
 
 ```text
 http://localhost:3000
 ```
 
-If MiddleTube is running on another computer, replace `localhost` with that computer's IP address.
+## Media Library
 
-For example:
+Place your videos inside the configured media directory.
 
-```text
-http://192.168.1.180:3000
-```
-
-## Media Storage
-
-By default, MiddleTube looks for videos in:
-
-```text
-./media
-```
-
-You can change this with:
-
-```env
-MIDDLETUBE_MEDIA_DIR=/path/to/your/videos
-```
-
-MiddleTube recursively scans the directory, so you can organize videos into folders.
-
-For example:
+The default directory is:
 
 ```text
 media/
-├── Channel One/
-│   ├── video1.mp4
-│   └── video2.mp4
-├── Channel Two/
-│   └── video3.mkv
-└── Uncategorized/
-    └── random-video.mp4
 ```
 
-## Admin Key
+Then open the Settings page and select **Scan Library**.
 
-Administrative API actions require the `MIDDLETUBE_ADMIN_KEY`.
+MiddleTube™ will scan the directory and build its local library database.
 
-Generate a strong random key with:
+## Supported Media
 
-```bash
-openssl rand -hex 32
-```
+MiddleTube™ relies on FFmpeg/FFprobe for media inspection and playback.
 
-Then put it in your `.env` file:
+Common formats such as:
 
-```env
-MIDDLETUBE_ADMIN_KEY=your-generated-key
-```
+* MP4
+* MKV
+* WebM
+* MOV
+* AVI
 
-**Never publish your real admin key to GitHub.**
-
-## API
-
-### Get videos
-
-```http
-GET /api/videos
-```
-
-Returns the videos currently in the library.
-
-### Scan library
-
-```http
-POST /api/scan
-x-admin-key: YOUR_ADMIN_KEY
-```
-
-Scans the configured media directory for new or changed videos.
-
-### Health check
-
-```http
-GET /api/health
-```
-
-Returns basic server health information.
-
-### Update video metadata
-
-```http
-PATCH /api/videos/:id
-x-admin-key: YOUR_ADMIN_KEY
-```
-
-Updates metadata for a video.
-
-### Generate a thumbnail
-
-```http
-POST /api/videos/:id/thumbnail
-x-admin-key: YOUR_ADMIN_KEY
-```
-
-Generates a new thumbnail for a video.
+may be supported depending on the codecs available on the system and browser.
 
 ## Project Structure
 
 ```text
 MiddleTube/
+├── index.html
+├── library.html
+├── video.html
+├── settings.html
+├── style.css
+├── app.js
 ├── server.js
-├── package.json
-├── package-lock.json
-├── .env.example
-├── .gitignore
-├── public/
-│   ├── index.html
-│   ├── app.js
-│   └── style.css
 ├── media/
 ├── thumbnails/
-└── data/
+├── data/
+└── package.json
 ```
 
-`media/`, `thumbnails/`, and generated database data should not be committed to the repository.
+### Frontend
 
-## Security
+The HTML files provide the individual MiddleTube™ pages.
 
-MiddleTube is designed primarily for use on a trusted network.
+`style.css` contains the global visual design and themes.
 
-Do not expose the MiddleTube server directly to the public internet without considering authentication, HTTPS, and other security requirements.
+`app.js` handles frontend interactions, library loading, filtering, video pages, scanning, and theme preferences.
 
-Never commit `.env` or other files containing your admin key to a public repository.
+### Backend
+
+`server.js` runs the Express web server and handles:
+
+* Video library scanning
+* Video metadata
+* Thumbnail generation
+* Video uploads
+* Library APIs
+* Static media delivery
+
+## Configuration
+
+MiddleTube™ can be configured through the Settings page.
+
+Available settings include:
+
+* Media directory
+* Server port
+* Light/dark theme
+* Library scanning
+
+Server environment variables may also be used where supported.
+
+## Design Philosophy
+
+MiddleTube™ is designed around a simple idea:
+
+> Your media library should not require a complicated media platform to use.
+
+The project intentionally avoids unnecessary account systems, complicated permissions, cloud dependencies, and excessive frontend frameworks.
+
+It is meant to be understandable, modifiable, and easy to self-host.
+
+## Why?
+
+Because sometimes you have a folder full of videos and decide:
+
+> “You know what this needs? A fucking media platform.”
+
+So MiddleTube™ exists.
+
+## Status
+
+MiddleTube™ is an actively developed personal project.
+
+Expect bugs, questionable architectural decisions, and occasional instances of accidentally deleting one character and causing 200 JavaScript errors.
 
 ## License
 
-MiddleTube is licensed under the MIT License.
+See the `LICENSE` file for licensing information.
 
-See `LICENSE` for the full license text.
+## Disclaimer
 
+MiddleTube™ is provided as-is.
+
+You are responsible for the media you store, serve, and access through your own installation.
+
+nah fuh that if buying isnt owning piracy isnt stealing
 ---
 
-Made with Node.js, Express, FFmpeg, and an unreasonable amount of media files.
+# cant you tell i used cheatGPT on this?
 
-**i lowk used chatgpt because i cant code and NO, im NOT learning to code**
+**MiddleTube™ — Local video. No corporate cloud bullshit.**
