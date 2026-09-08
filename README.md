@@ -2,6 +2,8 @@
 
 A self-hosted local video archive and media management platform built with HTML, CSS, JavaScript, and Node.js.
 
+tube archivist is a pain in the ass to install
+
 MiddleTube™ turns a directory of locally stored videos into a clean, searchable web-based media library.
 
 ## Features
